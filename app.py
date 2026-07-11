@@ -29,7 +29,7 @@ df["genres"] = df["genres"].str.replace("|", " ", regex=False)
 df["title"] = df["title"].fillna("")
 df["title"] = df["title"].str.lower()
 
-    return df
+return df
 
 dataset = load_data()
 
