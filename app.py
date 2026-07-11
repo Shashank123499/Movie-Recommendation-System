@@ -12,6 +12,17 @@ from difflib import get_close_matches
 @st.cache_data
 def load_data():
     df = pd.read_csv("movies.csv")
+    rating = pd.read_csv(r"C:\Users\Saksham Awasthi\Downloads\ratings.csv")
+
+avg_rating = (
+    rating.groupby("movieId")["rating"].mean().reset_index()
+)
+
+avg_rating.rename(columns = {"rating": "Average_Rating"},inplace = True)
+
+dataset = dataset.merge(
+    avg_rating , on = "movieId",how = "left"
+)
 
     df["genres"] = df["genres"].fillna("")
     df["genres"] = df["genres"].str.replace("|", " ", regex=False)
@@ -71,12 +82,13 @@ def recommend_movies(movie_name):
 
         movie_genre = dataset.iloc[movie[0]]["genres"]
 
-        recommendations.append(
-            {
-                "title": movie_title,
-                "genre": movie_genre
-            }
-        )
+        movie_rating = dataset.iloc[movie[0]]["Average_Rating"]
+
+       recommendations.append({
+             "title": movie_title,
+             "genre":movie_genre,
+             "rating":round(movie_rating,1)
+             })
 
     return recommendations, []
 
@@ -121,8 +133,10 @@ if st.button("Recommend"):
 
             for i, m in enumerate(result, 1):
 
-                st.markdown(f"### {i}. {m['title']}")
+                st.markdown(f"### 🎬 {movie['title']}")
 
-                st.write(f"**Genre:** {m['genre']}")
+                st.write(f"⭐ Rating: {movie['rating']}/5")
+
+                st.write(f"🎭 Genre: {movie['genre']}")
 
                 st.divider()
