@@ -1,5 +1,5 @@
 pandas
 scikit-learn
 requests
-difflib
+numpy
 streamlit
