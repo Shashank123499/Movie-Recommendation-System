@@ -84,7 +84,7 @@ def recommend_movies(movie_name):
 
         movie_rating = dataset.iloc[movie[0]]["Average_Rating"]
 
-       recommendations.append({
+        recommendations.append({
              "title": movie_title,
              "genre":movie_genre,
              "rating":round(movie_rating,1)
