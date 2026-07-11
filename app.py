@@ -89,8 +89,8 @@ def recommend_movies(movie_name):
              "genre":movie_genre,
              "rating":round(movie_rating,1)
              })
-
-      return recommendations, []
+        
+    return recommendations, []
 
 
 # --------------------------
