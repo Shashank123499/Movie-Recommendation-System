@@ -11,7 +11,7 @@ from difflib import get_close_matches
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"C:\Users\Saksham Awasthi\Downloads\movies.csv")
+    df = pd.read_csv("movies.csv")
 
     df["genres"] = df["genres"].fillna("")
     df["genres"] = df["genres"].str.replace("|", " ", regex=False)
