@@ -24,10 +24,10 @@ dataset = dataset.merge(
     avg_rating , on = "movieId",how = "left"
 )
 
-    df["genres"] = df["genres"].fillna("")
-    df["genres"] = df["genres"].str.replace("|", " ", regex=False)
-    df["title"] = df["title"].fillna("")
-    df["title"] = df["title"].str.lower()
+df["genres"] = df["genres"].fillna("")
+df["genres"] = df["genres"].str.replace("|", " ", regex=False)
+df["title"] = df["title"].fillna("")
+df["title"] = df["title"].str.lower()
 
     return df
 
