@@ -133,10 +133,10 @@ if st.button("Recommend"):
 
             for i, m in enumerate(result, 1):
 
-                st.markdown(f"### 🎬 {movie['title']}")
+                st.markdown(f"### 🎬 {m['title']}")
 
-                st.write(f"⭐ Rating: {movie['rating']}/5")
+                st.write(f"⭐ Rating: {m['rating']}/5")
 
-                st.write(f"🎭 Genre: {movie['genre']}")
+                st.write(f"🎭 Genre: {m['genre']}")
 
                 st.divider()
