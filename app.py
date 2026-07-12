@@ -11,8 +11,8 @@ from difflib import get_close_matches
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv(r"C:\Users\Saksham Awasthi\Downloads\movies.csv")
-    rating = pd.read_csv(r"C:\Users\Saksham Awasthi\Downloads\ratings.csv")
+    df = pd.read_csv("movies.csv")
+    rating = pd.read_csv("ratings.csv")
 
     avg_rating = (
      rating.groupby("movieId")["rating"].mean().reset_index()
