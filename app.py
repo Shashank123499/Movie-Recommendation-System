@@ -39,7 +39,7 @@ df = load_data()
 
 cv = CountVectorizer(stop_words="english")
 
-vectors = cv.fit_transform(dataset["genres"]).toarray()
+vectors = cv.fit_transform(df["genres"]).toarray()
 
 similarity = cosine_similarity(vectors)
 
@@ -52,7 +52,7 @@ def recommend_movies(movie_name):
 
     movie_name = movie_name.lower()
 
-    if movie_name not in dataset["title"].values:
+    if movie_name not in df["title"].values:
 
         close_match = get_close_matches(
             movie_name,
