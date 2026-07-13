@@ -109,7 +109,7 @@ def recommend_movies(movie_name):
         recommendations.append({
              "title": movie_title,
              "genre":movie_genre,
-             "rating":round(movie_rating,1)
+             "rating":round(movie_rating,1),
              "poster":fetch_poster(movie_title)
              })
 
